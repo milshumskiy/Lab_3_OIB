@@ -36,3 +36,7 @@ def test():
     watermark_photo(path_to_original, edited_name, '2.jpg', position=(1, 1))
     recieved_counter = recieved_counter + 1
    
+    
+    im = Image.open(path_to_edited)
+    io = StringIO.StringIO()
+   
