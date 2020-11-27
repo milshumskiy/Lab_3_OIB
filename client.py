@@ -40,3 +40,4 @@ def get_watermark_image(imagename):
 
 
 
+#save_image(get_watermark_image('C:\\Users\\user\\Desktop\\1.png'))
