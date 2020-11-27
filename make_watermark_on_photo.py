@@ -15,5 +15,5 @@ def watermark_photo(input_image_path, watermark_image_path, position):
         add_to_edited_table('newimage.jpg')
         print('The watermark was successfully applied to the picture')
     else:
-        print('The size of the watermark is larger than the original photo !')
+        print('The size of the watermark is larger than the original phooto !')
       
