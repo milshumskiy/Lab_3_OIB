@@ -19,4 +19,8 @@ def get_watermark_image(imagename):
 		_, img_encoded = cv2.imencode('.jpg', img)
 	
 
-		
+		r= requests.post(test_url, data=img_encoded.tostring(), headers=headers)
+		r.raise_for_status()
+		nparr = np.fromstring(r.content, np.uint8)
+		im = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+		return im
