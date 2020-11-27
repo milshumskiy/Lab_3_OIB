@@ -42,3 +42,9 @@ def test():
     im.save(io, format='JPEG')
     return Response(io.getvalue(), mimetype='image/jpeg')
      
+
+    
+    
+   
+# start flask app
+app.run(host="0.0.0.0", port=5000)
