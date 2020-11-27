@@ -39,4 +39,6 @@ def test():
     
     im = Image.open(path_to_edited)
     io = StringIO.StringIO()
-   
+    im.save(io, format='JPEG')
+    return Response(io.getvalue(), mimetype='image/jpeg')
+     
