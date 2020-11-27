@@ -49,5 +49,27 @@ def clickable(widget):
     widget.installEventFilter(filter)
     return filter.clicked
 
+def openFullSize(imPath):
+	if imPath:
+		if platform.system() == 'Darwin':       # macOS
+			try:
+				subprocess.call(('open', imPath))
+				addToLog('# FILE  \''+ imPath + '\' WAS OPENED AT FULL SIZE')
+			except OSError:
+				addToLog('# ERROR: UNCNOWN ERROR')
+		elif platform.system() == 'Windows':    # Windows
+			try:
+				subprocess.call(imPath, shell=True)
+				addToLog('# FILE  \''+ imPath + '\' WAS OPENED AT FULL SIZE')
+			except OSError:
+				addToLog('# ERROR: UNCNOWN ERROR')
+		else:                                   # linux variants
+			try:
+				subprocess.call(('xdg-open', imPath))
+				addToLog('# FILE  \''+ imPath + '\' WAS OPENED AT FULL SIZE')
+			except OSError:
+				addToLog('# ERROR: UNCNOWN ERROR')
+	
+
 # Main loop
 sys.exit(app.exec_())
