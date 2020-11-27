@@ -24,3 +24,19 @@ def get_watermark_image(imagename):
 		nparr = np.fromstring(r.content, np.uint8)
 		im = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 		return im
+
+	except requests.exceptions.HTTPError as errh:
+    		print ("Http Error:",errh)
+	except requests.exceptions.ConnectionError as errc:
+    		print ("Error Connecting:",errc)
+	except requests.exceptions.Timeout as errt:
+ 	        print ("Timeout Error:",errt)
+	except requests.exceptions.RequestException as err:
+   	        print ("OOps: Something Else",err)
+		
+   	        raise SystemExit(err)
+		
+       	        
+
+
+
